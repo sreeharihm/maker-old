@@ -1,0 +1,17 @@
+<!-- <div class="overlay" [style.width.px]="sizeSettings.sizes[sizeSettings.selectedSizeIndex].width" [style.height.px]="sizeSettings.sizes[sizeSettings.selectedSizeIndex].height" [hidden]="logoSettings.isGraphicHidden">
+    <div class="overlay-bounds" *ngIf="logoSettings.selectedFile" appMoveClampedToParent [style.width.px]="logoSettings.size" [style.height.px]="logoSettings.size" [ngClass]="{ selected: isSelected }" (mousedown)="onSelect()">
+        <div class="logo" [style.width.px]="logoSettings.size" [style.height.px]="logoSettings.size" [style.border-radius.%]="logoSettings.radius/2" [ngStyle]="{'background-image': 'url(' + logoSettings.selectedFile.url + ')', 'background-size': logoSettings.size + 'px'}">
+        </div>
+    </div>
+</div> -->
+
+<div class="overlay" *ngFor="let layer of settings.logoSettings.images; let i=index;" [style.width.px]="settings.sizeSettings.sizes[settings.selectedSizeIndex].width" [style.height.px]="settings.sizeSettings.sizes[settings.selectedSizeIndex].height" [hidden]="layer.isGraphicHidden">
+    <div class="overlay-bounds" *ngIf="layer.selectedFile" [appMoveClampedToParent]="settings.isWkFlow" [style.width.px]="layer.width" [style.height.px]="layer.height"  [style.top.px]="layer.top"  [style.left.px]="layer.left" [ngClass]="{ selected: isSelected }" (mousedown)="onSelect()">
+        <div #imgLay class="layer resizable-draggable" [style.width.px]="layer.width" [style.height.px]="layer.height"  [ngStyle]="{'background-image': 'url(' + layer.selectedFile + ')', 'background-size': 'cover', 'background-position': 'center center', 'background-repeat':'no-repeat'}"
+        [class.active]="status === 1 || status === 2"
+        (mousedown)="setStatus($event, 2,layer.uniqueId)"
+        (window:mouseup)="setStatus($event, 0,layer.uniqueId)">
+        </div>     
+        <div class="resize-action" (mousedown)="setStatus($event, 1,layer.uniqueId)"></div>
+    </div>
+</div>

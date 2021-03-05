@@ -1,0 +1,38 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+.column {
+    padding: 0 4px;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
+  }
+  
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  .column img:hover {
+    opacity: 1;
+    transition: .5s ease;
+  }
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  @media screen and (max-width: 800px) {
+    .column {
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }

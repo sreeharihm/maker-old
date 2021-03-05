@@ -1,0 +1,45 @@
+<!-- Edit Logo/Graphic -->
+<!--<div *ngIf="logoSettings.selectedFile">
+    
+    <div class="logo-type-container inline-block pointer" (click)="onVisibilityToggle()">
+        <div class="logo-type"><img class="svg-icon" src="assets/svg/remove_red_eye.svg"></div>
+        <p class="logo-type-label text-center"><span>{{logoSettings.isGraphicHidden ? 'Show' : 'Hide'}}</span></p>
+    </div>
+    <div class="logo-type-container inline-block pointer">
+        <div class="logo-type"><img class="svg-icon" src="assets/svg/refresh.svg"></div>
+        <p class="logo-type-label text-center">Replace</p>
+        <input type="file" class="hidden-file" (change)="onSelectFileChange($event)" title=" " />
+    </div>
+    <div class="logo-type-container inline-block pointer" (click)="onRemove()">
+        <div class="logo-type"><img class="svg-icon" src="assets/svg/delete.svg"></div>
+        <p class="logo-type-label text-center">Remove</p>
+    </div>
+
+    <p>Size: {{logoSettings.size}}px</p>
+    <input type="range" min="9" max="135" [(ngModel)]="logoSettings.size" (input)="logoSettingsChange.emit(logoSettings)">
+
+    <p>Radius: {{logoSettings.radius}}%</p>
+    <input type="range" min="0" max="100" [(ngModel)]="logoSettings.radius" (input)="logoSettingsChange.emit(logoSettings)">
+
+</div> -->
+<div *ngIf="settings.logoSettings?.images?.length > 0">
+    <div class="row">
+        <div class="column">
+            <div class="img-holder" *ngFor="let img of settings.logoSettings.images;">
+                <button class="btn" (click)=deleteImage(img.uniqueId);>
+                    <i class="fa fa-times"></i>   
+                </button>
+                <img [src]="img.selectedFile" [alt]="img.name" appSelectable (isSelectedChange)="onIsSelectedChange(img.uniqueId)">
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
+<!-- Insert Logo/Graphic -->
+<div>
+    <div class="upload-file-container">
+        <input type="file" class="hidden-file" (change)="onSelectFileChange($event)" title=" " />
+        <span class="btn btn-block btn-lg text-center">Upload</span>
+    </div>
+    <p class="help-text">Insert Logo, Images or Graphics to get started.</p>
+</div>

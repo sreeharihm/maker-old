@@ -1,0 +1,9 @@
+<p class="help-text">Click text for adding to page</p>
+<div class="text-select-container">
+    <div class="inline-block text-center pointer w-100 mb-2" *ngFor="let texts of settings.textSettings.models; let i=index;" appSelectable (isSelectedChange)="onIsSelected($event,i)">
+        <button class="btn button text-selector btn-lg"  [ngClass]="{ selected: texts.isSelected }" [style.font-size.px]="texts.fontSize" >{{texts.type}}</button>
+    </div>
+</div>
+<div class="upload-file-container">
+<button class="btn-lg btn-block" (click)="addText($event)" title="">Add Text</button>
+<app-edit-text [settings]="settings"></app-edit-text>

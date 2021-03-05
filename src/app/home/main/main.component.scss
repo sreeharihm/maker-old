@@ -1,0 +1,34 @@
+.tools {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    
+    .btn.btn-outline-primary {
+        color: #000;
+        border: none;
+        width: 60px;
+        padding: 0.30rem;
+    } & :hover {
+        color: #fff;
+    } & :focus {
+        box-shadow: none;
+    }
+    .dropdown-menu {
+        width: 60px;
+        min-width: 0;
+        border: none;
+        color: #000;
+        box-shadow: 1px 1px 8px -2px rgba(63, 38, 38, 0.1);
+        padding: 0px;
+        .dropdown-item {
+            background: #fff;
+            padding: 0.4rem 0.5rem;
+            font-size: 0.86rem;
+        } :hover {
+            background: #eee;
+            color: #000;
+        }
+    } & ::before, ::after{
+        border: none !important;
+    }
+}

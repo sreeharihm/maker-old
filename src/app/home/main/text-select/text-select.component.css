@@ -1,0 +1,20 @@
+.text-selector {
+    background: hsla(0,0%,100%,.07);
+    padding: 8px;
+    width: 100%;
+    color: #fff;
+    border: none;
+    opacity: 0.7;
+}
+.text-selector:hover, .selected {
+    background: rgba(255, 255, 255, 0.342);
+    opacity: 1;
+}
+.text-select-container {
+    text-align: center;
+}
+
+.text-select-container-center-spacer {
+    margin: 0 11px;
+}
+

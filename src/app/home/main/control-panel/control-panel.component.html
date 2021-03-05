@@ -1,0 +1,9 @@
+<li>
+    <a href="javascript:void(0);" (click)="toggleSub = true" class="parent"><i class="fa fa-pencil-ruler"></i>{{label}}</a>
+    <ul class="sub-menus" [class.d-block]="toggleSub">
+        <li>
+            <ng-content select="app-control-panel-button"></ng-content>
+            <ng-content select="app-control-panel-body"></ng-content>
+        </li>
+    </ul>
+<li>

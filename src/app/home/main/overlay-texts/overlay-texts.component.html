@@ -1,0 +1,4 @@
+<div class="overlay" *ngFor="let texts of settings.textSettings.models; let i=index;" [style.width.px]="settings.sizeSettings.sizes[settings.selectedSizeIndex].width" [style.height.px]="settings.sizeSettings.sizes[settings.selectedSizeIndex].height">
+    <app-editable-text class="overlay-bounds" [style.left.px]="texts.left ? texts.left : ''" [style.top.px]="texts.top ? texts.top : ''" (onResized)="setHeightAndWidth($event)" [appMoveClampedToParent]="settings.isWkFlow" *ngIf="texts.isSelected" [style.width.px]="texts.width"
+        [model]="texts" [options]="settings.textSettings.options" [ngClass]="{ selected: texts.uniqueId === settings.selectedModelUniqueId }" (mousedown)="onSelected(texts.uniqueId)"></app-editable-text>
+</div>
