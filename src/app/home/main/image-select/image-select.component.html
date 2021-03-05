@@ -1,0 +1,11 @@
+<input type="text" placeholder="Filter Images" class="filter-box" value="{{settings.imageSettings.filterQuery}}" (keyup)="onKeyUp($event)">
+<div class="row">
+    <div class="column" *ngIf="settings.imageSettings?.images?.length > 0">
+        <img *ngFor="let img of (settings.imageSettings.images | indexOf : ['name', 'tags'] : settings.imageSettings.filterQuery);" [src]="processImgUrl(img.url)" [alt]="img.name" [ngClass]="{ selected: img.uniqueId === settings.selectedImageUniqueId }" appSelectable (isSelectedChange)="onIsSelectedChange(img.uniqueId)">
+    </div>
+</div>
+<hr />
+<div class="upload-file-container">
+    <input type="file" class="hidden-file" (change)="onSelectFileChange($event)" title=" " />
+    <div class="btn btn-block btn-lg text-center">Upload Background</div>
+</div>

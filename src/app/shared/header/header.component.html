@@ -1,0 +1,47 @@
+    <header class="header_wrp">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-3 col-lg-3 col-sm-4 col-12">
+              <div class="logo">
+                <a href="index.html" class="logo_txt"><img src="../assets/img/logo.png" class="img-fluid" /></a>
+                <a class="float-right nav_link" href="javascript:void(0);"><i class="icon-menu"></i></a>
+              </div>
+            </div>
+            <div class="col-xl-2 col-lg-9 col-sm-8 col-12 float-right ml-xl-auto" *ngIf="userDetails !== null">
+              <ul class="nav-menus">
+                <li (click)="readyToDownload()">
+                  <a href="javascript:void(0)" class="btn"><i class="fas fa-download"></i></a>
+                </li>
+                <li (click)="showProfile = !showProfile">
+                  <div class="snap" *ngIf="!userDetails?.photoUrl">
+                    <div class="profileImage">{{profileImage}}</div>
+                  </div>
+                  <div class="snap no-bg" *ngIf="userDetails?.photoUrl">
+                    <img *ngIf="userDetails?.photoUrl" [src]="userDetails.photoUrl" class="rounded-circle img-fluid" alt="Cinque Terre">         
+                  </div>
+                </li>
+              </ul>
+              <div class="wrapper" *ngIf="showProfile">
+                  <div class="profile">
+                      <div class="thumbnail" *ngIf="!userDetails?.photoUrl">
+                        <div class="profileImage">{{profileImage}}</div>
+                      </div>
+                      <div class="thumbnail no-bg" *ngIf="userDetails?.photoUrl">
+                        <img *ngIf="userDetails?.photoUrl" [src]="userDetails.photoUrl" class="rounded-circle img-fluid" alt="Cinque Terre" width="140" height="140">
+                      </div>
+                      <h3 class="name">{{userDetails?.name}}</h3>
+                      <p class="title">{{ userDetails?.email }}</p>
+                      <p class="title">{{ userDetails?.phone }}</p>
+                      <button type="button" class="btn button" (click)="redirectToUpdate()">Update Profile</button>
+                  </div>
+              </div>
+              <div class="concept" *ngIf="showProfile"> 
+                  <a href="javascript: void()" (click)="authService.SignOut()">
+                      <i class="fal fa-sign-out"></i> Logout
+                  </a>
+              </div>
+            </div>
+          </div>
+        </div>    
+    </header>
+    

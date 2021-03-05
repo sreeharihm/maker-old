@@ -1,0 +1,60 @@
+<section class="login_page">
+    <div class="login_box">
+        <img *ngIf="!photoURL" src="https://196034-584727-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2019/05/Business-Development-Manager-Profile-Photo.jpg.webp" class="rounded-circle my-3 img-responsive" alt="Cinque Terre" width="140" height="140">
+        <img *ngIf="photoURL" [src]="processImgUrl(photoURL)" class="rounded-circle my-3 img-responsive" alt="Cinque Terre" width="140" height="140">
+        <h2>Hi {{displayName}}!</h2>
+        <h3>Update your account</h3>
+        <div class="form_filed_row">
+            <div class="form_field_wrapper">
+                <div class="form_field">
+                    <div class="form_field_prefix">
+                        <i class="material-icons">phone</i>
+                    </div>
+                    <div class="form_filed_input">
+                        <input type="text" [(ngModel)]="phone" name="phone" id="phone" />
+                        <span class="float_label">
+                            <label for="phone">Phone</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form_filed_row">
+            <div class="form_field_wrapper">
+                <div class="form_field">
+                    <div class="form_field_prefix">
+                        <i class="material-icons">lock</i>
+                    </div>
+                    <div class="form_filed_input">
+                        <input type="text" [(ngModel)]="displayName" name="displayName" id="displayName" required />
+                        <span class="float_label">
+                            <label for="password">Display Name</label>
+                        </span>
+                    </div>
+                    <div class="form_field_suffix">
+                        <button type="button" class="icon_button">
+                            <div class="icon_button_wrapper">
+                                <i class="material-icons">visibility_off</i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="note">Please enter your password</div>
+            </div>
+        </div>
+        <div class="form_filed_row mb-0">
+            <div class="form_field_wrapper">
+                <label class="file">
+                    <input type="file" id="file" aria-label="File browser" (change)="onSelectFileChange($event)" >
+                    <span class="file-custom"></span>
+                </label>
+            </div>
+        </div>
+        
+        <button class="login_btn" type="button" (click)="updateProfile()">
+            <i class="material-icons">arrow_right_alt</i>
+            Update
+        </button>
+    </div>
+    <div class="login_banner"></div>
+</section>

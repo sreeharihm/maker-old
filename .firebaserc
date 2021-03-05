@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "poster-create": {
+      "hosting": {
+        "poster-create": [
+          "poster-create"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "poster-create"
+  }
+}

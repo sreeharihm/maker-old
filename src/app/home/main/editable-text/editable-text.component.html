@@ -1,0 +1,8 @@
+<div #box class="resizable-draggable editable-text" [style.background-color]="model.bColor" [class.active]="status === 1 || status === 2" (mousedown)="setStatus($event, 2)" (window:mouseup)="setStatus($event, 0)" [style.left.px]="model.left ? model.left : ''"
+    [style.top.px]="model.top ? model.top : ''" [style.font-size.px]="width ? width / model.divident : model.size">
+    <input #textInput type="text" [(ngModel)]="model.text" [ngClass]="{ 'isBold': model.isBold, 'isItalic': model.isItalic, 'text-left': model.alignIndex === 0, 'text-center': model.alignIndex === 1, 'text-right': model.alignIndex === 2, 'size-normal': model.sizeIndex === 0, 'size-large': model.sizeIndex === 1, 'size-largest': model.sizeIndex === 2 }"
+        [style.font-size.%]="100" [style.color]="model.tColor" [style.fontFamily]="options.fonts[model.fontIndex].family">
+
+
+    <div class="editable-text resize-action" [hidden]="isEditing" (mousedown)="setStatus($event, 1)"></div>
+</div>

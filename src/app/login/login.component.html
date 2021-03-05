@@ -1,0 +1,70 @@
+<section class="login_page">
+    <div class="login_box">
+        <div class="logo"></div>
+        <h2>Poster Maker</h2>
+        <h3>Login to your account</h3>
+        <div class="form_filed_row">
+            <div class="form_field_wrapper">
+                <div class="form_field">
+                    <div class="form_field_prefix">
+                        <i class="material-icons">perm_identity</i>
+                    </div>
+                    <div class="form_filed_input">
+                        <input type="text" [(ngModel)]="email" name="User ID" id="user_id"  required />
+                        <span class="float_label">
+                            <label for="user_id">User ID</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="note">Please enter your username or ID</div>                
+            </div>
+        </div>
+        <div class="form_filed_row">
+            <div class="form_field_wrapper">
+                <div class="form_field">
+                    <div class="form_field_prefix">
+                        <i class="material-icons">lock</i>
+                    </div>
+                    <div class="form_filed_input">
+                        <input type="password" [(ngModel)]="password" name="password" id="password"  required />
+                        <span class="float_label">
+                            <label for="password">Password</label>
+                        </span>
+                    </div>
+                    <div class="form_field_suffix">
+                        <button type="button" class="icon_button">
+                            <div class="icon_button_wrapper">
+                                <i class="material-icons">visibility_off</i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="note">Please enter your password</div>                
+            </div>
+        </div>
+        <button class="login_btn" type="button" (click)="redirectToHome()">
+            <i class="material-icons">arrow_right_alt</i>
+            Login
+        </button>
+        <div class="login_action">
+            <label class="checkbox">
+                <input type="checkbox" name="remember" id="remember" />
+                <svg viewBox="0 0 21 21">
+                    <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                </svg>
+                <label class="label" for="remember">Remember me</label>
+            </label>
+            <a href="javascript:void(0);" class="link_password">Forgot password</a>
+        </div>
+        <div class="login_footer">
+            <a href="javascript:void(0);" class="link_password">Support &nbsp;/&nbsp;</a>
+            <a href="javascript:void(0);" class="link_password">PosterMaker.com</a>
+            <div class="fill-remaining-space"></div>
+            <div class="secure_login">
+                <img alt="secure login" src="https://res.cloudinary.com/ffdc/image/upload/v1584350622/security_24px_outlined_giy3g4.svg">
+                <div class="sub_title"><span>Secure</span> login</div>
+            </div>
+        </div>
+    </div>
+    <div class="login_banner"></div>
+</section>

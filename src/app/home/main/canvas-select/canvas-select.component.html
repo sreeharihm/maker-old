@@ -1,0 +1,6 @@
+<div id="poster" class="overlays-container" [style.width.px]="settings.sizeSettings.sizes[settings.selectedSizeIndex].width" [style.height.px]="settings.sizeSettings.sizes[settings.selectedSizeIndex].height">
+    <canvas #photoCanvas class="shadow" width="{{settings.sizeSettings.sizes[settings.selectedSizeIndex].width}}" height="{{settings.sizeSettings.sizes[settings.selectedSizeIndex].height}}" (click)="onClearOverlaysSelection()">
+    </canvas>
+    <app-overlay-logo [settings]="settings"></app-overlay-logo>
+    <app-overlay-texts [settings]="settings"></app-overlay-texts>
+</div>
