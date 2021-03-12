@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ImageCropperModule } from 'ngx-image-cropper';
 
@@ -30,6 +30,8 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import { IndexOfPipe } from '../shared/pipes/index-of.pipe';
 import { TemplateComponent } from './main/template/template.component';
 
+import { FormFieldsModule } from '../home/main/form-fields/form-fields.module';
+
 @NgModule({
   declarations: [DashboardComponent, MainComponent, CanvasSelectComponent,
     EditTextComponent, ImageSelectComponent,  SelectableDirective,
@@ -44,7 +46,9 @@ import { TemplateComponent } from './main/template/template.component';
     FormsModule,
     NgbModule,
     ColorPickerModule,
-    ImageCropperModule
+    ImageCropperModule,
+    ReactiveFormsModule,
+    FormFieldsModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA 

@@ -14,37 +14,21 @@
     <div class="modal-body">
         <form>
             <div class="col-md-12">
-                <form accept-charset="UTF-8" method="POST" target="_blank">
-                    <!-- <div class="form-group">
-                        <label for="companyName">Company Name</label>
-                        <input type="text" name="companyName" [(ngModel)]="companyName" class="form-control" placeholder="My Company" required="required">
+                <form [formGroup]="form" accept-charset="UTF-8" method="POST" target="_blank">
+                    <div class="form-group" *ngFor="let field of fields"> 
+                        <app-form-fields [options]="field" [form]="form" >
+                        </app-form-fields>
                     </div> 
-                    <div class="form-group" *ngIf="settings.selectedImageUniqueId === 'bk2'">
-                        <label for="address" required="required">Footer Higlight Text</label>
-                        <input type="text" name="address" [(ngModel)]="address" class="form-control" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message (Optional)</label>
-                        <input type="text" name="message" [(ngModel)]="message" class="form-control" placeholder="Wishing you a">
-                    </div>
-                    <div class="form-group mt-3">
-                        <label class="mr-2 mb-2">Upload Photo:</label>
-                        <input type="file" [(ngModel)]="photo" name="photo" (change)="onSelectFileChange($event)">
-                    </div>
-                    <div class="form-group mt-3">
-                        <label class="mr-2 mb-2">Upload Company Logo:</label>
-                        <input type="file" [(ngModel)]="companyLogo" name="companyLogo" (change)="onSelectFileChange($event)">
-                    </div>-->
-                    <div class="form-group">
-                        <label class="mr-2 mb-2">Upload Photo:</label>
-                        <input type="file" [(ngModel)]="photo" name="photo" (change)="onSelectFileChange($event)">
-                        <image-cropper
-                            [imageChangedEvent]="imageChangedEvent"
+                    <hr>
+                    <button type="submit" class="button float-right btn-primary" (click)="addText()">Apply Changes</button>
+                </form> 
+                <div class="row" *ngIf="uploadedFiles.length >0">
+                    <image-cropper
                             [maintainAspectRatio]="true"
-                            [imageBase64] = "photo"
+                            [imageBase64] = "originalImage"
                             [containWithinAspectRatio]="true"
-                            [resizeToWidth]="settingsForTemplate[0].imgModels[0].width"
-                            [cropperMinWidth]="settingsForTemplate[0].imgModels[0].width"
+                            [resizeToWidth]="currentimgWidth"
+                            [cropperMinWidth]="currentimgWidth"
                             [onlyScaleDown]="true"
                             [roundCropper]="false"
                             [canvasRotation]="0"
@@ -54,27 +38,16 @@
                             format="png"
                             (imageCropped)="imageCropped($event)"
                         ></image-cropper>
+                    <div class="column"  *ngFor="let item of uploadedFiles">
+                        <label>{{item.label}}</label>
+                        <span (click)="cropImage(item.imgid)">
+                        <img [src]="item.imgValue" height="100px" width="100px" class="img-list" />
+                        </span> 
                     </div>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" [(ngModel)]="name" class="form-control" placeholder="" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="footerCopy" required="required">Footer Copy</label>
-                        <input type="text" name="footerCopy" [(ngModel)]="footerCopy" class="form-control" placeholder="">
-                    </div>
-                    
-                    <div class="form-group" *ngIf="settings.selectedImageUniqueId === 'bk2'">
-                        <label for="address" required="required">Footer Higlight Text</label>
-                        <input type="text" name="address" [(ngModel)]="address" class="form-control" placeholder="">
-                    </div>
-                    <div class="form-group" *ngIf="settings.selectedImageUniqueId === 'bk2'">
-                        <label for="name">Phone Number</label>
-                        <input type="text" name="phoneNUmber" [(ngModel)]="phoneNUmber" class="form-control" placeholder="" required="required">
-                    </div>
-                    <hr>
-                    <button type="submit" class="button float-right btn-primary" (click)="addText()">Apply Changes</button>
-                </form>
+                </div>
+                <!--  <div *ngIf="croppedImage.length >0">
+                    <img [src]="croppedImage" height="200px" width="200px" class="img-list" />
+                </div> -->
             </div>
         </form>
     </div>

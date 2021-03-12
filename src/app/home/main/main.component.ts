@@ -12,13 +12,13 @@ import {NgbDropdownConfig} from '@ng-bootstrap/ng-bootstrap';
   providers: [NgbDropdownConfig]
 })
 export class MainComponent implements OnInit {
-    public zoom = ['200%', '175%', '150%', '125%', '100%', '75%', '50%', '25%', '10%']
+    public zoom = ['200%', '175%', '150%', '125%', '100%', '75%', '50%', '25%','15%', '10%']
     @Output() templateSettings: any;
     @Output() settings: any;
 
     public toggleSub = [false];
     public activeTabId = 'templates';
-    public zoomValue = '15%';
+    public zoomValue = '50%';
 constructor(private editSettingsService: EditSettingsService, 
               private generateImageService: GenerateImageService,
               private imageFilterService: ImageFilterService,
@@ -39,8 +39,8 @@ constructor(private editSettingsService: EditSettingsService,
             sizes: [
                 {
                     name: "Pinterest",
-                    width: 4500,
-                    height: 4500
+                    width: 1500,
+                    height: 1500
                 },
                 {
                     name: "Instagram",
@@ -139,10 +139,12 @@ constructor(private editSettingsService: EditSettingsService,
         imgIds: ["bk1img0"],
 
         txtModels:[
-            { uniqueId: "bk1txt0", type: 'Name', text: "Name", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false, isSelected: true, size: 172 , width:2067, height:142, tColor:"Black",bColor:"", fontSize: 16, divident: 16.5, left: 2132, top: 3839 },
-            { uniqueId: "bk1txt1", type: 'Footer Copy', text: 'Footer Copy', fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: false, isItalic: false, isSelected: true, size: 92 , width:1748, height:83, tColor:"Black",bColor:"", fontSize: 16, divident: 22, left: 2303, top: 4063 }
+            { uniqueId: "bk1txt0", type: 'name', text: "Name",label: "Name", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false, isSelected: true, size: 167 , width:2067, height:142, tColor:"Black",bColor:"", fontSize: 16, divident: 16.5, left: 2132, top: 3839 },
+            { uniqueId: "bk1txt1", type: 'footercopy', text: 'Footer Copy',label: "Footer Copy", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: false, isItalic: false, isSelected: true, size: 104 , width:1748, height:83, tColor:"Black",bColor:"", fontSize: 16, divident: 22, left: 2303, top: 4063 }
         ],
         imgModels:[{
+            text:"Photo",
+            type: "photo",
             height: 1500 ,
             isGraphicHidden: false,
             isSelected: true,
@@ -161,10 +163,12 @@ constructor(private editSettingsService: EditSettingsService,
         txtIds: ["bk4txt0","bk4txt1"],
         imgIds: ["bk4img0"],
         txtModels:[
-            { uniqueId: "bk4txt0", type: 'Name', text: "Name", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false,isSelected: false, size:172, width:2811, height:142, tColor:"#ffffff",bColor:"", fontSize: 24, divident: 16.5, left: 844, top: 3803 },
-            { uniqueId: "bk4txt1", type: 'Footer Copy', text: "Footer Copy", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: false, isItalic: false,isSelected: false, size: 92 , width:2811, height:83, tColor:"#ffffff",bColor:"", fontSize: 16, divident: 22, left: 844, top: 4016},
+            { uniqueId: "bk4txt0", type: 'name', text: "Name", label: "Name", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false,isSelected: false, size:172, width:2811, height:142, tColor:"#ffffff",bColor:"", fontSize: 24, divident: 16.5, left: 844, top: 3803 },
+            { uniqueId: "bk4txt1", type: 'footercopy', text: "Footer Copy",label: "Footer Copy", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: false, isItalic: false,isSelected: false, size: 92 , width:2811, height:83, tColor:"#ffffff",bColor:"", fontSize: 16, divident: 22, left: 844, top: 4016},
         ],
         imgModels:[{
+            text:"Photo",
+            type: "photo",
             height: 2008 ,
             isGraphicHidden: false,
             isSelected: true,
@@ -183,10 +187,12 @@ constructor(private editSettingsService: EditSettingsService,
         txtIds: ["bk5txt0","bk5txt1"],
         imgIds: ["bk5img0"],
         txtModels:[
-            { uniqueId: "bk5txt0", type: 'Name', text: "Name", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false,isSelected: false, size:172, width:2811, height:142, tColor:"#ffffff",bColor:"", fontSize: 24, divident: 16.5, left: 844, top: 3803 },
-            { uniqueId: "bk5txt1", type: 'Footer Copy', text: "Footer Copy", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: false, isItalic: false,isSelected: false, size: 92 , width:2811, height:83, tColor:"#ffffff",bColor:"", fontSize: 16, divident: 22, left: 844, top: 4016},
+            { uniqueId: "bk5txt0", type: 'name', text: "Name",label: "Name", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false,isSelected: false, size:172, width:2811, height:142, tColor:"#ffffff",bColor:"", fontSize: 24, divident: 16.5, left: 844, top: 3803 },
+            { uniqueId: "bk5txt1", type: 'footercopy', text: "Footer Copy",label: "Footer Copy", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: false, isItalic: false,isSelected: false, size: 92 , width:2811, height:83, tColor:"#ffffff",bColor:"", fontSize: 16, divident: 22, left: 844, top: 4016},
         ],
         imgModels:[{
+            text:"Photo",
+            type: "photo",
             height: 2008 ,
             isGraphicHidden: false,
             isSelected: true,
@@ -205,13 +211,22 @@ constructor(private editSettingsService: EditSettingsService,
         txtIds: ["bk2txt0","bk2txt1"],
         imgIds: ["bk2img0"],
         txtModels:[
-            { uniqueId: "bk2txt0", type: 'Name', text: "Name", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false,isSelected: false, size:53, width:420, height:140, tColor:"white",bColor:"", fontSize: 24, divident: 16, left: 20, top: 995 },
-            { uniqueId: "bk2txt1", type: 'Footer Copy', text: "Footer Copy", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: false, isItalic: false,isSelected: false, size: 33 , width:420, height:140, tColor:"white",bColor:"", fontSize: 16, divident: 20, left: 20, top: 1038},
-            { uniqueId: "bk2txt2", type: 'Address', text: "Address", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false,isSelected: false, size:53, width:800, height:400, tColor:"#ffffff",bColor:"", fontSize: 24, divident: 16, left: 400, top: 720 },
-            { uniqueId: "bk2txt3", type: 'Phone Number', text: "Phone Number", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false,isSelected: false, size: 60 , width:800, height:300, tColor:"white",bColor:"", fontSize: 10, divident: 20, left: 370, top: 1020},
+            { uniqueId: "bk2txt0", type: 'name', text: "Name",label: "Name", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false,isSelected: false, size:117, width:1476, height:94, tColor:"white",bColor:"", fontSize: 24, divident: 16, left: 154, top: 4039 },
+            { uniqueId: "bk2txt1", type: 'footercopy', text: "Footer Copy",label: "Footer Copy", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: false, isItalic: false,isSelected: false, size: 96 , width:1476, height:83, tColor:"white",bColor:"", fontSize: 16, divident: 20, left: 154, top: 4228},
+            { uniqueId: "bk2txt2", type: 'address', text: "Address",label: "Address", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false,isSelected: false, size:133, width:2268, height:118, tColor:"#ffffff",bColor:"", fontSize: 24, divident: 16, left: 2008, top: 2953 },
+            { uniqueId: "bk2txt3", type: 'phonenumber', text: "Phone Number",label: "Phone Number", fontIndex: 0, colorIndex: 0, alignIndex: 0, sizeIndex: 0, isBold: true, isItalic: false,isSelected: false, size: 51 , width:394, height:39, tColor:"white",bColor:"", fontSize: 10, divident: 20, left: 854, top: 1398},
+
+            { uniqueId: "bk2txt4", type: 'detail1', text: "detail1",label: "Detail1", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false,isSelected: false, size:117, width:850, height:118, tColor:"white",bColor:"", fontSize: 24, divident: 16, left: 2008, top: 3295 },
+            { uniqueId: "bk2txt5", type: 'detail2', text: "detail2",label: "Detail2", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false,isSelected: false, size:117, width:850, height:118, tColor:"white",bColor:"", fontSize: 16, divident: 20, left: 2008, top: 3472},
+            { uniqueId: "bk2txt6", type: 'detail3', text: "detail3",label: "Detail3", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false,isSelected: false, size:117, width:850, height:118, tColor:"#ffffff",bColor:"", fontSize: 24, divident: 16, left: 2008, top: 3650 },
+            { uniqueId: "bk2txt7", type: 'detail4', text: "detail4",label: "Detail4", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false,isSelected: false, size:117, width:1299, height:118, tColor:"white",bColor:"", fontSize: 10, divident: 20, left: 2976, top: 3295}, 
+            { uniqueId: "bk2txt8", type: 'detail5', text: "detail5",label: "Detail5", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false,isSelected: false, size:117, width:1299, height:118, tColor:"#ffffff",bColor:"", fontSize: 24, divident: 16, left: 2976, top: 3472 },
+            { uniqueId: "bk2txt9", type: 'detail6', text: "detail6",label: "Detail6", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false,isSelected: false, size:117, width:1299, height:118, tColor:"white",bColor:"", fontSize: 10, divident: 20, left: 2976, top: 3650},
         ],
         imgModels:[{
-            height: 277 ,
+            text:"Photo",
+            type: "photo",
+            height: 1098 ,
             isGraphicHidden: false,
             isSelected: true,
             radius: 0,
@@ -219,20 +234,68 @@ constructor(private editSettingsService: EditSettingsService,
             size: 50,
             uniqueId: "bk2img0",
             url: null,
-            width:  268,
-            top: 709,
-            left: 87
-          }]
+            width:  1063,
+            top: 2843,
+            left: 354
+          },
+          {
+            text:"Picture1",
+            type: "picture1",
+            height: 1654 ,
+            isGraphicHidden: false,
+            isSelected: true,
+            radius: 0,
+            selectedFile: null,
+            size: 50,
+            uniqueId: "bk2img1",
+            url: null,
+            width:  3390,
+            top: 1181,
+            left: 0
+          },
+          {
+            text:"Picture2",
+            type: "picture2",
+            height: 803 ,
+            isGraphicHidden: false,
+            isSelected: true,
+            radius: 0,
+            selectedFile: null,
+            size: 50,
+            uniqueId: "bk2img2",
+            url: null,
+            width:  1063,
+            top: 1181,
+            left: 3437
+          },
+          {
+            text:"Picture3",
+            type: "picture3",
+            height: 803 ,
+            isGraphicHidden: false,
+            isSelected: true,
+            radius: 0,
+            selectedFile: null,
+            size: 50,
+            uniqueId: "bk2img3",
+            url: null,
+            width:  1063,
+            top: 2031,
+            left: 3437
+          }
+        ]
     },
     {
         bkId:"bk6",
         txtIds: ["bk6txt0","bk6txt1"],
         imgIds: ["bk6img0"],
         txtModels:[
-            { uniqueId: "bk6txt0", type: 'Name', text: "Name", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false,isSelected: false, size:172, width:2811, height:142, tColor:"#000000",bColor:"", fontSize: 24, divident: 16.5, left: 844, top: 3236 },
-            { uniqueId: "bk6txt1", type: 'Footer Copy', text: "Footer Copy", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: false, isItalic: false,isSelected: false, size: 92 , width:2811, height:83, tColor:"#000000",bColor:"", fontSize: 16, divident: 22, left: 844, top: 3425},
+            { uniqueId: "bk6txt0", type: 'name', text: "Name",label: "Name", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: true, isItalic: false,isSelected: false, size:172, width:2811, height:142, tColor:"#000000",bColor:"", fontSize: 24, divident: 16.5, left: 844, top: 3236 },
+            { uniqueId: "bk6txt1", type: 'footercopy', text: "Footer Copy",label: "Footer Copy", fontIndex: 0, colorIndex: 0, alignIndex: 1, sizeIndex: 0, isBold: false, isItalic: false,isSelected: false, size: 92 , width:2811, height:83, tColor:"#000000",bColor:"", fontSize: 16, divident: 22, left: 844, top: 3425},
         ],
         imgModels:[{
+            text:"Photo",
+            type: "photo",
             height: 1535 ,
             isGraphicHidden: false,
             isSelected: true,

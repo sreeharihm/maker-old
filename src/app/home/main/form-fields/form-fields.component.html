@@ -1,0 +1,4 @@
+<ng-container [ngSwitch]="options.type">
+    <app-text-fields *ngSwitchCase="'text'" [options]="options" [form]="form" ></app-text-fields>
+    <app-img-fields *ngSwitchCase="'file'" [options]="options" [form]="form"></app-img-fields>
+</ng-container>
