@@ -11,6 +11,11 @@
     columns: 2;
 }
 
+.form-group {
+    input {
+        text-align: left !important;
+    }
+}
 
 .column img {
     margin-top: 8px;
@@ -47,4 +52,24 @@
 
 .modal-header>button :focus {
     outline: none;
+}
+
+.upload-container {
+    display:flex;
+    max-width:600px;
+    overflow: auto;
+    .preview-box {
+        margin: 5px;
+        label {
+            display: block;
+            float: left;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+        span > img {
+            max-width:300px;
+            max-height:100px ;
+            border:2px solid gray
+        }
+    }
 }

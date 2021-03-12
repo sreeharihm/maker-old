@@ -15,17 +15,30 @@
         <form>
             <div class="col-md-12">
                 <form [formGroup]="form" accept-charset="UTF-8" method="POST" target="_blank">
-                    <div class="form-group" *ngFor="let field of fields"> 
-                        <app-form-fields [options]="field" [form]="form" >
-                        </app-form-fields>
-                    </div> 
+                    <ng-container>
+                        <div class="row">
+                            <div class="col-sm-6" *ngFor="let field of fields">
+                                <div class="form-group"> 
+                                    <app-form-fields [options]="field" [form]="form" ></app-form-fields>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
                     <hr>
                     <button type="submit" class="button float-right btn-primary" (click)="addText()">Apply Changes</button>
                 </form> 
                 <div class="row" *ngIf="uploadedFiles.length >0">
+                    <div class="upload-container">
+                        <div *ngFor="let item of uploadedFiles" class="preview-box">
+                            <label>{{item.label}}</label>
+                            <span (click)="cropImage(item.imgid)">
+                                <img [src]="item.imgValue" class="img-fluid" />
+                            </span>
+                        </div>
+                    </div>
                     <image-cropper
-                            [maintainAspectRatio]="true"
                             [imageBase64] = "originalImage"
+                            [maintainAspectRatio]="true"
                             [containWithinAspectRatio]="true"
                             [resizeToWidth]="currentimgWidth"
                             [cropperMinWidth]="currentimgWidth"
@@ -36,14 +49,7 @@
                             [alignImage]="'left'"
                             [style.display]="null"
                             format="png"
-                            (imageCropped)="imageCropped($event)"
-                        ></image-cropper>
-                    <div class="column"  *ngFor="let item of uploadedFiles">
-                        <label>{{item.label}}</label>
-                        <span (click)="cropImage(item.imgid)">
-                        <img [src]="item.imgValue" height="100px" width="100px" class="img-list" />
-                        </span> 
-                    </div>
+                            (imageCropped)="imageCropped($event)" ></image-cropper>
                 </div>
                 <!--  <div *ngIf="croppedImage.length >0">
                     <img [src]="croppedImage" height="200px" width="200px" class="img-list" />

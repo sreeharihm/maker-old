@@ -3,6 +3,15 @@ input {
     background-color: transparent;
     z-index: 0;
 }
+.editable-text {
+    padding: 0px !important;
+}
+
+.editable-text > input {
+    vertical-align: top;
+    height: 100%;
+    padding: 0px;
+}
 
 .drag-overlay {
     width: 100%;

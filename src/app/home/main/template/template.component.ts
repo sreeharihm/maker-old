@@ -131,7 +131,7 @@ export class TemplateComponent implements OnInit {
     this.logoSettingsChange.emit(this.settings.logoSettings);
     this.textSettingsChange.emit(this.settings.textSettings);
     this.imageSettingsChange.emit(this.settings.imageSettings);
-    this.templateModel = this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', backdrop : 'static'});
+    this.templateModel = this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', backdrop : 'static', size: 'xl'});
   }
 
   ngOnInit(): void {

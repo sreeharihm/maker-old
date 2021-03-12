@@ -4,7 +4,7 @@
       <p class="m-0">{{options.label}}
         Drag a file here or
         <label class="upload-button">
-          <input type="file" multiple="" (change)="options.onUpload($event,options.uniqueId,options.label,options.width)"> browse
+          <input type="file" (change)="options.onUpload($event,options.uniqueId,options.label,options.width)"> browse
         </label>
         to upload. 
       </p>
