@@ -24,33 +24,70 @@
                             </div>
                         </div>
                     </ng-container>
+                    <div class="row" *ngIf="uploadedFiles.length >0">
+                        <div class="upload-container">
+                            <div *ngFor="let item of uploadedFiles" class="preview-box">
+                                <label>{{item.label}}</label>
+                                <span (click)="cropImage(item.imgid)">
+                                    <img [src]="item.imgValue" class="img-fluid" />
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="modal-backdrop show" [ngStyle]="{'display':display}"></div>
+                            <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+                                <div class="modal-dialog modal-lg" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 class="modal-title">Adjust Image</h4>
+                                      <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <div class="row">
+                                        <div class="col-sm-8">
+                                            <image-cropper
+                                                [imageBase64] = "originalImage"
+                                                [maintainAspectRatio]="true"
+                                                [containWithinAspectRatio]="true"
+                                                [resizeToWidth]="currentimgWidth"
+                                                [cropperMinWidth]="currentimgWidth"
+                                                [onlyScaleDown]="true"
+                                                [roundCropper]="false"
+                                                [canvasRotation]="0"
+                                                [transform]="transform"
+                                                [alignImage]="'left'"
+                                                [style.display]="null"
+                                                format="png"
+                                                (imageCropped)="imageCropped($event)"
+                                                [transform]="transform"></image-cropper>
+                                        </div>
+                                        <div class="col-sm-4 crop-controls">
+                                            <label>Rotate Image</label>
+                                            <ngx-slider [(value)]="rotateValue" (valueChange)=transformImage(1) [options]="rotateSliderOptions"></ngx-slider>
+                                            <label>Flip Image</label>
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="button btn-primary" (click)="flipHorizontal()">Horizontal</button>
+                                                <button type="button" class="button btn-primary" (click)="flipVertical()">Vertical</button>
+                                            </div>
+                                            <label>Zoom Image</label>
+                                            <ngx-slider [(value)]="zoomValue" (valueChange)=transformImage(2) [options]="zoomSliderOptions"></ngx-slider>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="button float-right btn-secondary" (click)="transform = {}">Reset Image</button>
+                                        <button type="button" class="button float-right btn-primary" (click)="onCloseHandled()">Save & Close</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            
+                        </div>
+                    </div>
                     <hr>
                     <button type="submit" class="button float-right btn-primary" (click)="addText()">Apply Changes</button>
                 </form> 
-                <div class="row" *ngIf="uploadedFiles.length >0">
-                    <div class="upload-container">
-                        <div *ngFor="let item of uploadedFiles" class="preview-box">
-                            <label>{{item.label}}</label>
-                            <span (click)="cropImage(item.imgid)">
-                                <img [src]="item.imgValue" class="img-fluid" />
-                            </span>
-                        </div>
-                    </div>
-                    <image-cropper
-                            [imageBase64] = "originalImage"
-                            [maintainAspectRatio]="true"
-                            [containWithinAspectRatio]="true"
-                            [resizeToWidth]="currentimgWidth"
-                            [cropperMinWidth]="currentimgWidth"
-                            [onlyScaleDown]="true"
-                            [roundCropper]="false"
-                            [canvasRotation]="0"
-                            [transform]="transform"
-                            [alignImage]="'left'"
-                            [style.display]="null"
-                            format="png"
-                            (imageCropped)="imageCropped($event)" ></image-cropper>
-                </div>
+                
                 <!--  <div *ngIf="croppedImage.length >0">
                     <img [src]="croppedImage" height="200px" width="200px" class="img-list" />
                 </div> -->

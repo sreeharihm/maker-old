@@ -4,12 +4,24 @@ import { EditSettingsService } from 'src/app/shared/services/edit-settings.servi
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { ImageCroppedEvent, ImageTransform } from 'ngx-image-cropper';
 import { AuthService } from "src/app/shared/services/auth.service";
+import { Options } from '@angular-slider/ngx-slider';
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
   styleUrls: ['./template.component.scss']
 })
 export class TemplateComponent implements OnInit {
+  rotateValue: number = 0;
+  rotateSliderOptions: Options = {
+    floor: 0,
+    ceil: 360
+  };
+  zoomValue = 0;
+  zoomSliderOptions: Options = {
+    floor: 0,
+    ceil: 10
+  }
+  display = 'none';
   @Input() settings: any;
   @Output() imageSettingsChange: EventEmitter<any> = new EventEmitter();
   @Output() textSettingsChange: EventEmitter<any> = new EventEmitter();
@@ -75,6 +87,9 @@ export class TemplateComponent implements OnInit {
     }
   }
 
+  onCloseHandled() {
+    this.display = 'none'
+  }
   open(content,uniqueId) { 
     this.getUserData();  
     this.uploadedFiles=[];
@@ -147,6 +162,9 @@ export class TemplateComponent implements OnInit {
    this.imageSettingsChange.emit(this.settings.imageSettings);   
   }
 
+  onZoom(event) {
+
+  }
   onUpload(e,id,text,width) {
     let reader = new FileReader();
     if(e.target.files && e.target.files.length) {
@@ -173,6 +191,7 @@ export class TemplateComponent implements OnInit {
     this.originalImage = cc[0].imgValue;
     this.currentId =id;
     this.currentimgWidth= cc[0].width; 
+    this.display = 'block';
   }
 
   imageCropped(event: ImageCroppedEvent) {
@@ -280,5 +299,32 @@ export class TemplateComponent implements OnInit {
     }
     
 	}
+
+  transformImage(prop) {
+    if(prop === 1) {
+      this.transform = {
+        ...this.transform,
+        rotate: this.rotateValue
+      };
+    } else if (prop === 2) {
+      this.transform = {
+        ...this.transform,
+        scale: this.zoomValue
+      };
+    }
+  }
+  flipHorizontal() {
+    this.transform = {
+      ...this.transform,
+      flipH: !this.transform.flipH
+    };
+  }
+
+  flipVertical() {
+    this.transform = {
+      ...this.transform,
+      flipV: !this.transform.flipV
+    };
+  }
 
 }

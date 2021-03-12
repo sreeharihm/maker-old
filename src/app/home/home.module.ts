@@ -31,6 +31,7 @@ import { IndexOfPipe } from '../shared/pipes/index-of.pipe';
 import { TemplateComponent } from './main/template/template.component';
 
 import { FormFieldsModule } from '../home/main/form-fields/form-fields.module';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 @NgModule({
   declarations: [DashboardComponent, MainComponent, CanvasSelectComponent,
@@ -48,7 +49,8 @@ import { FormFieldsModule } from '../home/main/form-fields/form-fields.module';
     ColorPickerModule,
     ImageCropperModule,
     ReactiveFormsModule,
-    FormFieldsModule
+    FormFieldsModule,
+    NgxSliderModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA 
