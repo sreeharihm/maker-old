@@ -1,0 +1,4 @@
+<div [formGroup]="form">
+    <label for="{{options.key}}" required="required">{{options.label}}</label>
+    <input  type="text"  [formControlName]="options.uniqueId"  name="{{options.key}}" id="{{options.uniqueId}}"  title="{{ options.label }}"/>      
+</div>

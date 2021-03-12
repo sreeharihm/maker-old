@@ -1,0 +1,12 @@
+<div [formGroup]="form">
+    <div *ngIf="!options.value" class="drop-container dropzone" dropZone 
+      (dropped)="options.onUpload($event)">
+      <p class="m-0">{{options.label}}
+        Drag a file here or
+        <label class="upload-button">
+          <input type="file" multiple="" (change)="options.onUpload($event,options.uniqueId,options.label,options.width)"> browse
+        </label>
+        to upload. 
+      </p>
+    </div>
+  </div>

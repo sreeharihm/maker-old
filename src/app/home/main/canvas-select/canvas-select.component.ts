@@ -55,6 +55,7 @@ export class CanvasSelectComponent implements AfterViewInit {
 	}
 
 	onGenerateDownloadableImage() {
+		debugger;
 		let image = new Image();
         image.src = this.canvasArtboard.nativeElement.toDataURL("image/png");
         image.crossOrigin = "Anonymous";
