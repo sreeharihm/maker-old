@@ -88,7 +88,7 @@ export class TemplateComponent implements OnInit {
   }
 
   onCloseHandled() {
-    this.display = 'none'
+    this.display = 'none';
   }
   open(content,uniqueId) { 
     this.getUserData();  
@@ -192,6 +192,7 @@ export class TemplateComponent implements OnInit {
     this.currentId =id;
     this.currentimgWidth= cc[0].width; 
     this.display = 'block';
+    this.transform = {};
   }
 
   imageCropped(event: ImageCroppedEvent) {
